@@ -5,8 +5,14 @@ import PricingSection from "../components/Landing Page/PricingSection"
 import CTA from "../components/Landing Page/CTA"
 import Footer from "../components/Landing Page/Footer"
 import HowItWorks from "../components/Landing Page/HowItWorks"
+import {currentUser} from "@clerk/nextjs/server";
+import {redirect} from "next/navigation";
 
-export default function Home() {
+export default async function Home() {
+    const user = await currentUser();
+
+    //Redirects authorised user to the dashboard page
+    if(user) redirect("/dashboard")
     return (
        <div className="min-h-screen bg-background">
            <Header/>

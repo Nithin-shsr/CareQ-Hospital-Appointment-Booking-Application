@@ -7,10 +7,11 @@ import Footer from "../components/Landing Page/Footer"
 import HowItWorks from "../components/Landing Page/HowItWorks"
 import {currentUser} from "@clerk/nextjs/server";
 import {redirect} from "next/navigation";
+import {syncUser} from "@/lib/actions/users";
 
 export default async function Home() {
     const user = await currentUser();
-
+    await syncUser();
     //Redirects authorised user to the dashboard page
     if(user) redirect("/dashboard")
     return (

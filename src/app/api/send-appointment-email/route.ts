@@ -25,9 +25,12 @@ export async function POST(request:Request){
                 price,
             })
         })
-        if(error){
-            console.error("Resend error : ",error);
-            return NextResponse.json({error:"Failed to send EMAIl"},{status:500});
+        if (error) {
+            console.error("Resend error:", error);
+            return NextResponse.json(
+                { error: error.message || "Failed to send email" },
+                { status: 500 }
+            );
         }
         return NextResponse.json(
             {message : "Email sent successfully",emailId:data?.id},

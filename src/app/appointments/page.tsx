@@ -9,6 +9,7 @@ import BookingConfirmationStep from "@/components/Appointments Page/BookingConfi
 import {toast} from "sonner";
 import {APPOINTMENT_TYPES, generateAvatar} from "@/lib/utils";
 import {format} from "date-fns";
+import {AppointmentConfirmationModal} from "@/components/Appointments Page/AppointmentCofrimationModal";
 
 function AppointmentsPage(){
 
@@ -51,6 +52,28 @@ function AppointmentsPage(){
                 onSuccess : async (appointment) =>{
                     //Store the appointment details to show in the modal
                     setBookedAppointment(appointment);
+
+                    try {
+                        const emailResponse = await fetch("/api/send-appointment-email", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify({
+                                userEmail: appointment.patientEmail,
+                                doctorName: appointment.doctorName,
+                                appointmentDate: format(new Date(appointment.date), "EEEE, MMMM d, yyyy"),
+                                appointmentTime: appointment.time,
+                                appointmentType: appointmentType?.name,
+                                duration: appointmentType?.duration,
+                                price: appointmentType?.price,
+                            }),
+                        });
+
+                        if (!emailResponse.ok) console.error("Failed to send confirmation email");
+                    } catch (error) {
+                        console.error("Error sending confirmation email:", error);
+                    }
 
                     setShowConfirmationModal(true)
 
@@ -116,6 +139,18 @@ function AppointmentsPage(){
                     />
                 )}
             </div>
+            {bookedAppointment && (
+                <AppointmentConfirmationModal
+                    open={showConfirmationModal}
+                    onOpenChange={setShowConfirmationModal}
+                    appointmentDetails={{
+                        doctorName: bookedAppointment.doctorName,
+                        appointmentDate: format(new Date(bookedAppointment.date), "EEEE, MMMM d, yyyy"),
+                        appointmentTime: bookedAppointment.time,
+                        userEmail: bookedAppointment.patientEmail,
+                    }}
+                />
+            )}
             {/*SHOW EXISTING APPOINTMENTS OF THE CURRENT USER*/}
             {userAppointments.length > 0 && (
                 <div className="mb-8 max-w-7xl mx-auto px-6 py-8">

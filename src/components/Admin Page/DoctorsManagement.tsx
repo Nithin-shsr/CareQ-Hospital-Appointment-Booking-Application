@@ -55,13 +55,14 @@ function DoctorsManagement(){
                             >
                                 <div className="flex items-center gap-4">
                                     <Image
-                                        src={generateAvatar(doctor.name)}
+                                        src={generateAvatar(doctor.gender)} // pass gender, not name
                                         alt={doctor.name}
-                                        width={48}
-                                        height={48}
+                                        width={32}
+                                        height={32}
                                         className="rounded-full"
                                         unoptimized
                                     />
+
 
                                     <div>
                                         <div className="font-semibold">{doctor.name}</div>

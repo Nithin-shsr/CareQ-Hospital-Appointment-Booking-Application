@@ -39,7 +39,7 @@ export async function createDoctor(input:CreateDoctorInput){
         const doctor = await prisma.doctor.create({
             data:{
                 ...input,
-                imageUrl:generateAvatar(input.name),
+                imageUrl:generateAvatar(input.gender).src,
             }
         });
 
@@ -99,5 +99,28 @@ export async function updateDoctor(input : UpdateDoctorInput){
     catch(error){
         console.error("Error updating doctor",error);
         throw new Error("Failed to update doctor")
+    }
+}
+
+export async function getAvailableDoctors(){
+    try{
+        const doctors = await prisma.doctor.findMany({
+            where:{isActive:true},
+            include : {
+                _count:{
+                    select:{appointments:true},
+                },
+            },
+            orderBy:{name:"asc"},
+        });
+
+        return doctors.map((doctor)=>({
+            ...doctor,
+            appointmentCount : doctor._count.appointments,
+        }));
+    }
+    catch(error){
+        console.error("Error getting available doctors",error);
+        throw new Error("Failed to get available doctors");
     }
 }

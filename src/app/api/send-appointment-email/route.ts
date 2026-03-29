@@ -19,7 +19,7 @@ export async function POST(request:Request){
             react : AppointmentConfirmationEmail({
                 doctorName,
                 appointmentDate,
-                appointmentTime,
+                appointmentTime,    
                 appointmentType,
                 duration,
                 price,

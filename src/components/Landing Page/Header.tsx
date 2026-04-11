@@ -19,16 +19,8 @@ function Header(){
                 </div>
 
                 <div className="flex items-center gap-3">
-                    <SignInButton mode={"modal"}>
-                        <Button variant={"ghost"} size={"sm"}>
-                            Login
-                        </Button>
-                    </SignInButton>
-                    <SignUpButton mode={"modal"}>
-                        <Button variant={"default"} size={"sm"}>
-                            SignUp
-                        </Button>
-                    </SignUpButton>
+                    <SignInButton mode={"modal"}><Button variant={"ghost"} size={"sm"}>Login</Button></SignInButton>
+                    <SignUpButton mode={"modal"}><Button variant={"default"} size={"sm"}>SignUp</Button></SignUpButton>
                 </div>
             </div>
         </nav>

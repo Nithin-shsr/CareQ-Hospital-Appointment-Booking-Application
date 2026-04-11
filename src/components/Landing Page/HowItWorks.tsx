@@ -127,12 +127,7 @@ function HowItWorks(){
             </div>
             {/*Call to Action*/}
             <div className="text-center mt-16">
-                <SignUpButton mode="modal">
-                    <Button size="lg">
-                        <ArrowRightIcon className="mr-2 size-5" />
-                        Get started now
-                    </Button>
-                </SignUpButton>
+                <SignUpButton mode="modal"><Button size="lg"><ArrowRightIcon className="mr-2 size-5" />Get started now</Button></SignUpButton>
             </div>
         </section>
     );

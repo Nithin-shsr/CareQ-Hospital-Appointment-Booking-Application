@@ -52,20 +52,23 @@ function Hero() {
                                 </p>
 
                                 <div className="flex flex-col sm:flex-row gap-4 ">
+
                                     <SignUpButton mode={"modal"}>
                                         <Button size={"lg"}>
-                                            <MicIcon className="mr-2 size-5"/>
-                                            Try Voice Agent
+                                            <span className="flex items-center">
+                                                <MicIcon className="mr-2 size-5"/>
+                                                Try Voice Agent
+                                            </span>
                                         </Button>
-
                                     </SignUpButton>
 
                                     <SignUpButton mode={"modal"}>
                                         <Button size={"lg"} variant={"outline"}>
-                                            <CalendarIcon className="mr-2 size-5"/>
-                                            Book Appointment
+                                            <span className="flex items-center">
+                                                <CalendarIcon className="mr-2 size-5"/>
+                                                Book Appointment
+                                            </span>
                                         </Button>
-
                                     </SignUpButton>
                                 </div>
                             </div>

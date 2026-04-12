@@ -5,7 +5,7 @@ import {Button} from "../ui/button";
 
 function HowItWorks(){
     return (
-        <section className="relative py-32 px-6 outline-hidden z-10 max-w-7xl mx-auto">
+        <section id="how-it-works" className="relative py-32 px-6 outline-hidden z-10 max-w-7xl mx-auto">
             {/*Header*/}
             <div className="text-center mb-20">
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary/5 to-primary/10 rounded-full border border-primary/10 backdrop-blur-sm mb-6">
@@ -127,7 +127,14 @@ function HowItWorks(){
             </div>
             {/*Call to Action*/}
             <div className="text-center mt-16">
-                <SignUpButton mode="modal"><Button size="lg"><ArrowRightIcon className="mr-2 size-5" />Get started now</Button></SignUpButton>
+                <SignUpButton mode="modal">
+                    <Button size="lg">
+                        <span className="flex items-center">
+                            <ArrowRightIcon className="mr-2 size-5" />
+                            Get started now
+                        </span>
+                    </Button>
+                </SignUpButton>
             </div>
         </section>
     );

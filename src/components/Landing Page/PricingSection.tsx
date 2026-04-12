@@ -4,7 +4,7 @@ import { CheckCircleIcon } from "lucide-react";
 
 function PricingSection() {
     return (
-        <section className="relative py-32 px-6 overflow-hidden bg-gradient-to-b from-background via-muted/3 to-background">
+        <section id="pricing" className="relative py-32 px-6 overflow-hidden bg-gradient-to-b from-background via-muted/3 to-background">
             {/* Grid Background Pattern */}
             <div className="absolute inset-0">
                 <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/5 to-primary/5">
@@ -75,12 +75,12 @@ function PricingSection() {
                                             Find doctors by department
                                         </span>
                                     </div>
-                                    <div className="flex items-start gap-3">
-                                        <CheckCircleIcon className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                                        <span className="text-sm">
-                                            Basic patient support chat
-                                        </span>
-                                    </div>
+                                    {/*<div className="flex items-start gap-3">*/}
+                                    {/*    <CheckCircleIcon className="w-5 h-5 text-primary mt-0.5 shrink-0" />*/}
+                                    {/*    <span className="text-sm">*/}
+                                    {/*        Basic patient support chat*/}
+                                    {/*    </span>*/}
+                                    {/*</div>*/}
                                     <div className="flex items-start gap-3">
                                         <CheckCircleIcon className="w-5 h-5 text-primary mt-0.5 shrink-0" />
                                         <span className="text-sm">

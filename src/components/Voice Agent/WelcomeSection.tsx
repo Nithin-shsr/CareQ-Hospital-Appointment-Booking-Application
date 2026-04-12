@@ -15,7 +15,6 @@ function WelcomeSection() {
                     </p>
                 </div>
             </div>
-
             <div className="hidden lg:block">
                 <div className="w-32 h-32 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center">
                     <MicIcon className="w-16 h-16 text-primary" />

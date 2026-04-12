@@ -90,8 +90,8 @@ function Footer() {
                 {/* Bottom */}
                 <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
                     <p>
-                        &copy; 2024 CareQ. Simplifying hospital appointments and
-                        improving patient experience through AI.
+                        &copy; 2026 CareQ. Simplifying hospital appointments and
+                        improving patient experience.
                     </p>
                 </div>
             </div>
